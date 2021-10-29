@@ -1,0 +1,24 @@
+{% extends "ex01/base.html" %}
+{% load static %}
+
+{% block title %}Ex01: Template engine.{% endblock %}
+
+{% block style %}
+    <link rel="stylesheet" type="text/css" href="{% static 'ex01/style2.css' %}">
+{% endblock style %}
+
+{% block content %}
+{% include 'ex01/nav.html' %}
+    <h1>Django Template Engine</h1>
+    <p>Being a web framework, Django needs a convenient way to generate HTML dynamically. The most common approach relies on templates. A template contains the static parts of the desired HTML output as well as some special syntax describing how dynamic content will be inserted.</p>
+    <p>A Django template is a text document or a Python string marked-up using the Django template language. Some constructs are recognized and interpreted by the template engine. The main ones are variables and tags.</p>
+    <p>A template is rendered with a context. Rendering replaces variables with their values, which are looked up in the context, and executes tags. Everything else is output as is.</p>
+    <h2>Block</h2>
+    <p>Block is a part of your base template, that child templates can override.</p>
+    <h2>For loop</h2>
+    <p>Loops over each item in an array, making the item available in a context variable. Make possible to display lists, array, etc.</p>
+    <h2>If</h2>
+    <p>The if tag evaluates a variable, and if that variable is true (i.e. exists, is not empty, and is not a false boolean value) the contents of the block are output</p>
+    <h2>Variables</h2>
+    <p>Variables look like this: {{ variable }}. When the template engine encounters a variable, it evaluates that variable and replaces it with the result. Variable names consist of any combination of alphanumeric characters and the underscore ("_") but may not start with an underscore, and may not be a number. The dot (".") also appears in variable sections, although that has a special meaning, as indicated below. Importantly, you cannot have spaces or punctuation characters in variable names.</p>
+{% endblock content %}

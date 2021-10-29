@@ -1,0 +1,16 @@
+{% extends "ex02/base.html" %}
+
+{% block title %}Hello form{% endblock %}
+
+{% block content %}
+<form method="POST">
+	{% csrf_token %}
+	{{ form.as_table }}
+	<input type="submit" value="submit">
+</form>
+<div>
+	{% for record in records %}
+		<p>[{{ record.published }}] {{ record.content }}</p>
+	{% endfor %}
+</div>
+{% endblock content %}

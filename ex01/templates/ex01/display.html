@@ -1,0 +1,10 @@
+{% extends "ex01/base.html" %}
+
+{% block title %}Ex01: Display process of a static page.{% endblock %}
+
+{% block content %}
+{% include 'ex01/nav.html' %}
+    <p>User <b>requests</b> for a resource to the Django, Django works as a controller and check to the available resource in URL.</p>
+    <p>If URL maps, a <b>view</b> is called that interact with model and template, it renders a template.</p>
+    <p>Django responds back to the user and sends a <b>template as a response</b>.</p>
+{% endblock content %}
