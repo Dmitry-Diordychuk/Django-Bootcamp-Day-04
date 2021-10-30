@@ -17,11 +17,10 @@ def index(request):
 	if request.method == "POST":
 		form = RecordForm(request.POST)
 		if form.is_valid():
-			obj = form.save(commit=False)
-			obj.post = records
-			obj.save()
+			record = Record(content=form.data["content"])
+			record.save()
 
-			logger.info('[' + str(datetime.now()) + ']' + ' ' + obj.content)
+			logger.info('[' + str(datetime.now()) + ']' + ' ' + str(record.content))
 
 			return redirect('index')
 	else:

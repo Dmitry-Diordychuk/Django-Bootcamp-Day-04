@@ -1,9 +1,7 @@
 from django.db.models import fields
-from django.forms import ModelForm
+from django import forms
 
 from .models import Record
 
-class RecordForm(ModelForm):
-	class Meta:
-		model = Record
-		fields = ['content']
+class RecordForm(forms.Form):
+	content = forms.CharField(label='message', max_length=100)
